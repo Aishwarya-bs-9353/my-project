@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Web Page</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        /* My Web Page Section */
+        .header {
+            text-align: center;
+            font-size: 63px; /* Large text */
+            font-weight: bold;
+            color: black; /* Black text */
+            background-color: #28a745; /* Green background */
+            padding: 50px;
+            width: 180%;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sections */
+        .section {
+            width: 80%;
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            background-color: #007BFF; /* Blue */
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .sub-section {
+            background-color: #e3f2fd; /* Light Blue */
+            padding: 8px;
+            margin-top: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .sub-content {
+            display: none;
+            padding: 8px;
+            border-left: 3px solid #007BFF;
+            margin-top: 5px;
+        }
+
+        .editable {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .editable label {
+            font-weight: bold;
+        }
+
+        .editable input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .editable button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .editable button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- My Web Page Section -->
+    <div class="header">My Web Page</div>
+
+    <!-- About Us Section -->
+    <div class="section">
+        <h2 onclick="toggleDropdown('aboutDropdown')">About Us ▼</h2>
+        <div class="dropdown-content" id="aboutDropdown">
+
+            <div class="sub-section" onclick="toggleDropdown('teamDropdown')">Our Team ▼</div>
+            <div class="sub-content" id="teamDropdown">
+                <p>We are a group of passionate developers and designers.</p>
+            </div>
+
+            <div class="sub-section" onclick="toggleDropdown('missionDropdown')">Our Mission ▼</div>
+            <div class="sub-content" id="missionDropdown">
+                <p>Our mission is to create innovative and user-friendly web solutions.</p>
+            </div>
+
+            <div class="sub-section" onclick="toggleDropdown('visionDropdown')">Our Vision ▼</div>
+            <div class="sub-content" id="visionDropdown">
+                <p>We strive to be a leader in the digital industry.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="section">
+        <h2 onclick="toggleDropdown('contactDropdown')">Contact Us ▼</h2>
+        <div class="dropdown-content" id="contactDropdown">
+            
+            <!-- Editable Fields -->
+            <div class="editable">
+                <label for="email">Enter Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+
+                <label for="phone">Enter Phone:</label>
+                <input type="text" id="phone" placeholder="Enter your phone number">
+
+                <label for="address">Enter Address:</label>
+                <input type="text" id="address" placeholder="Enter your address">
+
+                <button onclick="displayContact()">Submit</button>
+            </div>
+
+            <!-- Display Entered Information -->
+            <div id="contactInfo" style="margin-top: 20px; display: none;">
+                <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+                <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+                <p><strong>Address:</strong> <span id="displayAddress"></span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dropdowns -->
+    <script>
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        function displayContact() {
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+
+            if (email || phone || address) {
+                document.getElementById("displayEmail").innerText = email;
+                document.getElementById("displayPhone").innerText = phone;
+                document.getElementById("displayAddress").innerText = address;
+                document.getElementById("contactInfo").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

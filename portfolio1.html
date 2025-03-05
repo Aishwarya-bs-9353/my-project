@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #333;
+        }
+        .carousel-control-prev, .carousel-control-next {
+            width: 5%;
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: black;
+            border-radius: 50%;
+            padding: 10px;
+        }
+        .project-img {
+            max-width: 40%;
+            height: auto;
+        }
+        section {
+            margin-bottom: 50px;
+        }
+        .divider {
+            border-top: 2px solid black;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="text-center py-5 bg-primary text-white">
+        <div class="container">
+            <label for="uploadPhoto">
+                <img id="profilePic" src="D:\aishuu\IMG-20200127-WA0016.jpg" alt="Profile Picture" class="profile-img mb-3">
+            </label>
+            <input type="file" id="uploadPhoto" class="d-none" accept="image/*" onchange="previewImage(event)">
+            <h1>Aishwarya BS</h1>
+            <p>Web Developer | Designer | Freelancer</p>
+        </div>
+    </section>
+
+    <section id="education-certifications" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h2>Education</h2>
+                    <p><strong>Bachelor of Engineering in Computer Science</strong></p>
+                    <p>ATME College of Engineering, Mysore, 2021-2025</p>
+                    <p>Higher Secondary Degree - 2nd PUC</p>
+                    <p>JSS Women's PU College, Saraswathipuram, Mysore, 2021</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h2>Certifications</h2>
+                    <p><strong>Full-Stack Web Development</strong> - Coursera</p>
+                    <p><strong>Python for Data Science</strong> - Udemy</p>
+                    <p><strong>Augmented Reality Development</strong> - edX</p>
+                    <p><strong>Machine Learning Basics</strong> - Google AI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="projects" class="py-5">
+        <div class="container text-center">
+            <h2>Projects</h2>
+            <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="C:\Users\Aishwarya bs\Downloads\omr photo.jpg" class="project-img" alt="Project 1">
+                            </div>
+                            <div class="col-md-8 text-start">
+                                <h5>Smart OMR Sheet Evaluator</h5>
+                                <p>A computer vision-based system using OpenCV to detect and evaluate OMR sheets...</p>
+                                <p>Features:</p>
+                                <ul>
+                                    <li>Automated answer detection</li>
+                                    <li>Efficient result storage and analysis</li>
+                                    <li>Reduces human intervention and errors</li>
+                                    <li>Customizable answer key and validation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="C:\Users\Aishwarya bs\Pictures\AR app.jpg" class="project-img" alt="Project 2">
+                            </div>
+                            <div class="col-md-8 text-start">
+                                <h5>AR-Based Learning App for HEI</h5>
+                                <p>An AR application designed for higher education institutions (HEI)...</p>
+                                <p>Features:</p>
+                                <ul>
+                                    <li>Augmented reality-based 3D models</li>
+                                    <li>Engaging and immersive educational experience</li>
+                                    <li>Customizable quizzes and assessments</li>
+                                    <li>Real-time interaction with educational content</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <img src="C:\Users\Aishwarya bs\Downloads\astro photo.jpg" class="project-img" alt="Project 3">
+                            </div>
+                            <div class="col-md-8 text-start">
+                                <h5>Astronomy Log</h5>
+                                <p>An interactive web-based astronomy log that allows users to record and track celestial observations...</p>
+                                <p>Features:</p>
+                                <ul>
+                                    <li>Real-time celestial tracking</li>
+                                    <li>Custom logs for astronomical events</li>
+                                    <li>Integrated star maps for better navigation</li>
+                                    <li>AI-based predictions for upcoming celestial events</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#projectCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#projectCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contact" class="py-5">
+        <div class="container text-center">
+            <h2>Contact Me</h2>
+            <p>Email: aishwaryasuresh7353@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/aishwarya-b-s-906372264" target="_blank">LinkedIn Profile</a></p>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2025 Aishwarya. All Rights Reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('profilePic');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
