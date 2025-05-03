@@ -1,0 +1,147 @@
+LLM is a type of AI that has been trained on vast amt of data. It can understand and generate human like text based on the pattern it has learned frm all that reading. This is part of generative-AI field.
+
+LLMs can do wide range of NLP tasks.
+Secret source which do LLM so good is transformers.
+LLM + DL = Generative AI(using deep neural network to create new content                              such as text,images,various forms of media.
+In LLM we only deals with text.
+(AI->ML->DL->LLM)
+
+Application of LLMs
+=chatbots/virtual assistants
+=machine translation
+=novel text generation
+=sentiment analysis
+=content creation
+
+creating an LLM= Pretraining(training on a large,diverse dataset) + Finetuning((labelled dataset)Refinement by training on narrower dataset, specific to particular task or domain)
+
+transformer architecture consist of 
+1.encoder = encodes input text into vectors
+2.decoder = generates output text from encoded vectors
+
+Later variations of transformer architecture are:
+1.BERT= Bidirectional encoder representations from transformers (Predicts hidden words in a given sentence)
+2.GPT models= Generative pretrained Transformers (generates new word)
+
+Type of LLMs
+1.General-Purpose LLMs – Designed for a wide range of tasks (e.g., GPT-4, LLaMA, PaLM).
+2.Domain-Specific LLMs – Trained for specific fields like healthcare (e.g., Med-PaLM), law (e.g., CaseLawLLM), or finance.
+3.Multimodal LLMs – Can process text, images, and other data types (e.g., GPT-4V, Gemini).
+4.Retrieval-Augmented LLMs (RAG) – Enhance responses with external knowledge sources (e.g., ChatGPT with web search).
+5.Code-Specific LLMs – Optimized for programming and code generation (e.g., Codex, StarCoder).
+
+step to build llm:-
+1.Data Curation
+2.Model Architecture
+3.Training at scale
+4.Evaluation
+
+
+
+
+
+
+
+
+
+
+
+
+
+Retrieval-Augmented Generation (RAG):
+
+Architecture of the Retriever:
+Fetches top-k relevant documents/passages using vector similarity (e.g., FAISS,
+ElasticSearch).
+Can use sparse (BM25) or dense (embedding-based) retrieval.
+
+Reader (LLM):
+Takes the original query + retrieved documents as input.
+Generates a coherent and informed response using context.
+
+Knowledge Source: External, customizable databases (e.g., PDFs, websites, enterprise documents).
+
+
+RAG System Architectur:–
+1. User Query Interface: Frontend that accepts user queries and can be web-based (React), chatbot UI, or API.
+
+2. Embedding Layer: Converts query + documents into vector format.
+Popular models:
+-OpenAI text-embedding-ada-002
+-sentence-transformers (e.g., all-MiniLM-L6-v2)
+-Cohere, HuggingFace models
+
+3. Vector Database (Retriever): Stores document embeddings and enables fast nearest-neighbor search based on cosine/similarity scores.
+Popular vector DBs:
+-FAISS (open-source, local)
+-Pinecone (cloud-based)
+-Weaviate, Chroma, Qdrant
+
+4. Context Builder: Chunks retrieved documents and merges them with the query.
+Handles:
+-Context window size limits (e.g., 4K or 16K tokens).
+-Re-ranking passages (optional).
+-Formatting the prompt (e.g., "Based on the context below, answer the question...").
+
+5. LLM (Generator): Accepts the query + retrieved context. Generates an accurate and context-aware response.
+LLM options:
+-GPT-4 / GPT-3.5
+-LLaMA / Mistral / Claude
+-Ollama (for local deployment)
+
+6. Response Layer: Displays answer + optionally the retrieved sources and Can include confidence score or links to supporting docs.
+
+
+Variants:
+Closed-book LLMs: Only rely on internal knowledge.
+Open-book RAG: Use real-time external sources for informed answers.
+Hybrid: Combines both static and dynamic sources.
+
+Advantages:
+Enhanced accuracy and trust.
+Domain adaptation without re-training the LLM.
+Scalable to dynamic knowledge (just update the database).
+
+Uses:
+Customer support with live document access
+Internal knowledge bots (HR, legal, medical)
+Research assistants
+Search-enhanced Q&A systems
+
+Challenges:
+Requires high-quality retrieval (garbage-in = garbage-out).
+Latency increases due to retrieval step.
+Needs infrastructure: vector DBs, document chunking, embedding models
+
+Tools used:
+Embedding model: sentence-transformers, OpenAI Embeddings
+Vector DB: FAISS, Pinecone, Weaviate, Chroma
+
+Real-World Use Cases:
+Enterprise: Company chatbots that answer based on internal docs
+Legal Search: summarize court rulings or contracts
+Healthcare: Chatbots that pull from medical databases or records
+Education: Student assistants accessing lecture notes & books
+E-commerce: Product Q&A over catalog + user reviews
+Research: Ask questions across large paper repositories
+Customer Support: Support bots with real-time policy & FAQ access.
+
+
+Building RAG Systems:
+Filter before retrieve: Add tags (e.g., doc type, date, category).
+Rank retrieved documents based on semantic similarity.
+Citation-ready answers: Link output to exact document/chunk used.
+Logging: Store user queries and output for feedback loop.
+Guardrails: Add fallback or “I don’t know” if retrieval confidence is low.
+
+Example for RAG:
+=Layer	                       =Tools / Libraries
+UI / API:	          React, FastAPI, Streamlit
+Embedding:	          sentence-transformers, OpenAI, Cohere
+Vector Store:	          FAISS, Pinecone, Weaviate, Qdrant
+LLM:	                  OpenAI (GPT-4), HuggingFace (LLaMA), Ollama
+Backend Orchestration:	  LangChain, LlamaIndex, Haystack
+Storage:	          MongoDB, PostgreSQL, S3.
+
+
+
